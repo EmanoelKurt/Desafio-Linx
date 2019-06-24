@@ -1,0 +1,138 @@
+#showcase {
+	width: 870px;
+	height: 345px;
+	margin: auto;
+	display: flex;
+	align-content: flex-start;
+	flex-wrap: wrap;
+	border: 1px solid rgb(214,229,242);
+	box-shadow: 1px 1px 1px rgb(200,200,200);
+   	border-radius: 8px;
+	overflow: hidden;
+}
+
+#showcase-top {
+	width: 100%;
+	height: 40px;
+	background: -webkit-linear-gradient(top, rgb(240,250,255) 0%, rgb(240,250,255) 46%, rgb(230, 245, 255) 54%);
+	display: flex;
+	margin-bottom: 5px;
+}
+
+#showcase-top-text1 {
+	width: 200px;
+	height: 100%;
+}
+
+#showcase-top-text2 {
+	width: auto;
+	height: 100%;
+}
+
+#showcase-middle {
+	width: 100%;
+	height: 280px;
+	display: flex;
+}
+
+#showcase-reference-box {
+	width: 185px;
+	height: 100%;
+	display: flex;
+	padding-left: 10px;
+	margin-right: 5px;
+}
+
+#showcase-list-box {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+	display: flex;
+}
+
+.showcase-item {
+	width: 140px;
+	height: 255px;
+	text-align: center;
+	margin: 5px;
+	display: inline-block;
+	padding: 10px;
+	color: black;
+    text-decoration: none;
+    flex-shrink: 0;
+
+}
+
+.showcase-item:hover {
+	background: linear-gradient(to bottom, rgb(220,235,245), white);
+}
+
+#showcase-bottom {
+	width: 100%;
+	height: 20px;
+	background: linear-gradient(to bottom, white, rgb(230,245,255));
+}
+
+.price-text {
+	height: auto;
+	color: rgb(220,0,0);
+	font-size: 11px;
+	margin-top: 10px;
+}
+
+.old-price{
+	color: black;
+}
+
+.sight-price {
+	font-size: 140%;
+	font-weight: 900;
+}
+
+.installment-price {
+	font-weight: 900;
+}
+
+.top-text {
+	color: rgb(0,110,183);
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.item-description {
+	height: 36px;
+	overflow: hidden;
+	white-space: normal;
+	color: #606060;
+}
+
+.showcase-buttom {
+	margin-top: 60px;
+	margin-left: 5px;
+	margin-right: 5px;
+	align-self: flex-start;
+	cursor: pointer;	
+}
+
+img {
+	margin-bottom: 5px;
+}
+
+p {
+	margin: 0;
+	text-align: left;
+	font-size: 11px;
+	font-family: Arial;
+}
+
+a{
+    text-decoration: none;
+}
+
+strong {
+	font-weight: 900;
+}
