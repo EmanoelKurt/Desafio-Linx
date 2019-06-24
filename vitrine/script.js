@@ -1,4 +1,4 @@
-// Cria tag script para fazer a leitura do JSONP
+
 var script = document.createElement('script');
 script.src = 'http://roberval.chaordicsystems.com/challenge/challenge.json?callback=X'
 document.getElementsByTagName('head')[0].appendChild(script);
@@ -9,7 +9,6 @@ function createReferenceItem(inf) {
 
 	let reference = inf.data.reference.item;
 	
-	// Ajusta formato da string que contém as condições de pagamento
 	let refInstallmentString = reference.productInfo.paymentConditions.replace("de", "de R$").replace(".", ","); 
 
 	document.querySelector("#reference-img").src = "http:" + reference.imageName;;
@@ -24,7 +23,7 @@ function createListItens(inf) {
 
 	let list = inf.data.recommendation;
 	
-	for(i = 0; i < list.length; i++) {	// Laço for que cria os itens da vitrine e funciona para qualquer quantidade de itens
+	for(i = 0; i < list.length; i++) {
 
 		let div = document.createElement('a');
 		div.className = "showcase-item";
@@ -43,9 +42,7 @@ function createListItens(inf) {
 		let priceText = document.createElement('p');
 		priceText.className = "price-text";
 		
-		// Condicional para acrescentar oldPrice à vitrine somente quando o item da lista tiver este campo preenchido
 		if (list[i].oldPrice != null) { 
-			// Aqui optei por inserir a tag span como uma string para gerar menos linhas de código
 			priceText.innerHTML = `<span class="old-price"> De: ${list[i].oldPrice}</span><br>`;  
 		}
 		priceText.innerHTML = priceText.innerHTML + "Por: ";
@@ -56,7 +53,6 @@ function createListItens(inf) {
 		price.innerHTML = list[i].price + "<br>";
 		priceText.appendChild(price);
 
-		// Ajusta o formato da string que contém as condições de pagamento e adiciona à vitrine
 		let listInstallmentString = list[i].productInfo.paymentConditions.replace("de", "de R$").replace(".", ","); 
 		let installmentPrice = document.createElement('span');
 		installmentPrice.className = "installment-price";
@@ -65,15 +61,10 @@ function createListItens(inf) {
 	}
 }
 
-function X(inf) { // Função que recebe o JSONP
+function X(inf) { 
 
-	// Calcula o valor máximo que o scroll pode assumir com base no número de itens da lista de recomendação
 	if(inf.data.recommendation.length <= 6) scrollMax = 515;
 	else scrollMax = 515 + (inf.data.recommendation.length - 6) * 171;
-
-	// Optei por criar o item de referência separadamente dos itens de recomendação da lista, pois avaliei que haveria
-	// algumas diferenças entre eles que poderiam complicar a codificação, por exemplo, na extração dos dados do arquivo JSONP, 
-	// onde as informações dos itens referência e recomendação são armazenadas em caminhos diferentes.
 	
 	createReferenceItem(inf); // Cria o item referência da vitrine
 
@@ -85,13 +76,11 @@ var buttomL = document.querySelector("#buttom-left");
 var showcaseListBox = document.querySelector("#showcase-list-box");
 var scrollPosition = 0;
 
-// Adiciona efeito hover aos botões de paginação
 buttomR.addEventListener("mouseenter", () => buttomR.src = "botaoRH.jpg");
 buttomR.addEventListener("mouseleave", () => buttomR.src = "botaoR.jpg");
 buttomL.addEventListener("mouseenter", () => buttomL.src = "botaoLH.jpg");
 buttomL.addEventListener("mouseleave", () => buttomL.src = "botaoL.jpg");
 
-// Adiciona funcionalidade aos botões de paginação
 buttomR.addEventListener("click", () => {
 	if(scrollPosition < scrollMax) {
 		scrollPosition += 515;
